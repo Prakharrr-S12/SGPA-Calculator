@@ -1,7 +1,9 @@
 .indexbody{
     font-family: Arial, sans-serif;
     text-align: center;
-    margin-top: 50px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
     background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
@@ -45,7 +47,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-   
+    flex-wrap: wrap;
 }
 
 .sem1{
@@ -185,6 +187,41 @@
     background: #3b82f6;
 }
 
+@media (max-width:768px){
+
+    .Clgname{
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .sub{
+        font-size: 18px;
+    }
+
+    .Maintitle{
+        width: 90%;
+        padding: 15px;
+    }
+
+    .buttons{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .sem1,
+    .sem2,
+    .sem3,
+    .sem4,
+    .sem5,
+    .sem6,
+    .sem7,
+    .sem8{
+        width: 130px;
+        height: 100px;
+        font-size: 14px;
+    }
+}
 .sembody{
     margin:0;
     padding:30px;
@@ -222,42 +259,6 @@
     letter-spacing:2px;
 
     font-family:"Alumni Sans SC",sans-serif;
-}
-
-@media screen and (max-width: 768px){
-
-    .Clgname{
-        font-size: 24px;
-    }
-
-    .sub{
-        font-size: 24px;
-    }
-
-    .buttons{
-        flex-wrap: wrap;
-        gap: 15px;
-        padding: 10px;
-    }
-
-    .sem1,
-    .sem2,
-    .sem3,
-    .sem4,
-    .sem5,
-    .sem6,
-    .sem7,
-    .sem8{
-        width: 120px;
-        height: 150px;
-        font-size: 16px;
-    }
-
-    .Maintitle{
-        width: 90%;
-        box-sizing: border-box;
-    }
-
 }
 
 .Theorysubjects,
