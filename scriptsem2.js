@@ -1,14 +1,99 @@
-function calculateSGPA() {
+document.getElementById("calculationMode").addEventListener("change", updatePlaceholders);
 
-    let inputs = document.querySelectorAll(".marksinput");
+function updatePlaceholders() {
 
-    for(let input of inputs){
-        if(input.value.trim() === ""){
-            alert("Please fill all the marks before calculating SGPA!");
-            input.focus();
-            return; 
+    let mode = document.getElementById("calculationMode").value;
+
+    let eseInputs = document.querySelectorAll(".ese-input");
+
+    eseInputs.forEach(input => {
+
+        if(mode === "verification") {
+            input.placeholder = "Scaled Marks Obtained in ESE";
         }
+        else {
+            input.placeholder = "Marks Obtained in ESE";
+        }
+
+    });
+}
+
+function updateMaxLimits() {
+
+    let mode = document.getElementById("calculationMode").value;
+
+    document.querySelectorAll(".ese-input").forEach(input => {
+
+        if (mode === "verification") {
+            input.max = input.dataset.verificationMax;
+        } else {
+            input.max = input.dataset.predictionMax;
+        }
+
+    });
+}
+
+document.getElementById("calculationMode").addEventListener("change", updateMode);
+
+function updateMode() {
+    updatePlaceholders();
+    updateMaxLimits();
+}
+
+updateMode();
+
+function validateInput(id, min, max) {
+
+    let el = document.getElementById(id);
+    let value = Number(el.value);
+
+    if (value < min || value > max) {
+        alert(`${id}: Enter value between ${min} and ${max}`);
+        el.focus();
+        return false;
     }
+
+    return true;
+}
+
+function validateAll(mode) {
+
+    // theory internal
+    if (!validateInput("am2isemsemrksobt", 0, 40)) return false;
+    if (!validateInput("apisemsemrksobt", 0, 40)) return false;
+    if (!validateInput("egisemsemrksobt", 0, 30)) return false;
+    if (!validateInput("dsdisemsemrksobt", 0, 40)) return false;
+    if (!validateInput("pctisemsemrksobt", 0, 30)) return false;
+
+    // labs
+    if (!validateInput("aplciapmrksobt", 0, 25)) return false;
+    if (!validateInput("eglciapmrksobt", 0, 25)) return false;
+    if (!validateInput("dsdlciapmrksobt", 0, 25)) return false;
+    if (!validateInput("pctlciapmrksobt", 0, 25)) return false;
+    if (!validateInput("oopmlciapmrksobt", 0, 25)) return false;
+    if (!validateInput("ew2ciapmrksobt", 0, 25)) return false;
+    if (!validateInput("iksciapmrksobt", 0, 25)) return false;
+
+    if (!validateInput("eglesepmrksobt", 0, 25)) return false;
+    if (!validateInput("dsdlesepmrksobt", 0, 25)) return false;
+    if (!validateInput("oopmlesepmrksobt", 0, 25)) return false;
+
+    // ESE based on mode
+    let eseMax = mode === "verification" ? 60 : 80;
+
+    if (!validateInput("am2esemrksobt", 0, eseMax)) return false;
+    if (!validateInput("apesemrksobt", 0, eseMax)) return false;
+    if (!validateInput("egesemrksobt", 0, mode === "verification" ? 45 : 60)) return false;
+    if (!validateInput("dsdesemrksobt", 0, eseMax)) return false;
+    if (!validateInput("pctesemrksobt", 0, mode === "verification" ? 45 : 60)) return false;
+
+    return true;
+}
+
+function calculateSGPA() {
+    let mode = document.getElementById("calculationMode").value;
+
+    if (!validateAll(mode)) return;
 
     document.querySelector(".Theorysubjects").style.display = "none";
     document.querySelector(".labsubjects").style.display = "none";
@@ -30,24 +115,6 @@ function calculateSGPA() {
     const IKS_Credits = 2;
     const TotalCredits = AM2_Credits + AP_Credits + EG_Credits + DSD_Credits + PCT_Credits + APL_Credits + EGL_Credits + DSDL_Credits + PCTL_Credits + OOPML_Credits + EW2_Credits + IKS_Credits;
 
-    const AM2_TotalMarks = 100;
-    const AP_TotalMarks = 100;
-    const EG_TotalMarks = 75;
-    const DSD_TotalMarks = 100;
-    const PCT_TotalMarks = 75;
-
-    const AM2_ESETotalMarks = 80;
-    const AP_ESETotalMarks = 80;
-    const EG_ESETotalMarks = 60;
-    const DSD_ESETotalMarks = 80;
-    const PCT_ESETotalMarks = 60;
-
-    const AM2_ScaledMarks = 60;
-    const AP_ScaledMarks = 60;
-    const EG_ScaledMarks = 45;
-    const DSD_ScaledMarks = 60;
-    const PCT_ScaledMarks = 45;
-
     const APL_TotalMarks = 25;
     const EGL_TotalMarks = 50;
     const DSDL_TotalMarks = 50;
@@ -62,12 +129,6 @@ function calculateSGPA() {
     let DSD_ISE_MSE_Marks = parseFloat(document.getElementById("dsdisemsemrksobt").value);
     let PCT_ISE_MSE_Marks = parseFloat(document.getElementById("pctisemsemrksobt").value);
 
-    let AM2_ESE_Marks = parseFloat(document.getElementById("am2esemrksobt").value);
-    let AP_ESE_Marks = parseFloat(document.getElementById("apesemrksobt").value);
-    let EG_ESE_Marks = parseFloat(document.getElementById("egesemrksobt").value);
-    let DSD_ESE_Marks = parseFloat(document.getElementById("dsdesemrksobt").value);
-    let PCT_ESE_Marks = parseFloat(document.getElementById("pctesemrksobt").value);
-
     let APL_CIAP_Marks = parseFloat(document.getElementById("aplciapmrksobt").value);
     let EGL_CIAP_Marks = parseFloat(document.getElementById("eglciapmrksobt").value);
     let DSDL_CIAP_Marks = parseFloat(document.getElementById("dsdlciapmrksobt").value);
@@ -80,6 +141,30 @@ function calculateSGPA() {
     let DSD_ESEP_Marks = parseFloat(document.getElementById("dsdlesepmrksobt").value);
     let OOPML_ESEP_Marks = parseFloat(document.getElementById("oopmlesepmrksobt").value);
 
+    const AM2_TotalMarks = 100;
+    const AP_TotalMarks = 100;
+    const EG_TotalMarks = 75;
+    const DSD_TotalMarks = 100;
+    const PCT_TotalMarks = 75;
+
+    const AM2_ESETotalMarks = 80;
+    const AP_ESETotalMarks = 80;
+    const EG_ESETotalMarks = 60;
+    const DSD_ESETotalMarks = 80;
+    const PCT_ESETotalMarks = 60;
+
+    let AM2_ScaledMarks = 60;
+    let AP_ScaledMarks = 60;
+    let EG_ScaledMarks = 45;
+    let DSD_ScaledMarks = 60;
+    let PCT_ScaledMarks = 45;
+
+    let AM2_ESE_Marks = parseFloat(document.getElementById("am2esemrksobt").value);
+    let AP_ESE_Marks = parseFloat(document.getElementById("apesemrksobt").value);
+    let EG_ESE_Marks = parseFloat(document.getElementById("egesemrksobt").value);
+    let DSD_ESE_Marks = parseFloat(document.getElementById("dsdesemrksobt").value);
+    let PCT_ESE_Marks = parseFloat(document.getElementById("pctesemrksobt").value);
+
     let AM2_ScalingFactor = AM2_ScaledMarks / AM2_ESETotalMarks;
     let AP_ScalingFactor = AP_ScaledMarks / AP_ESETotalMarks;
     let EG_ScalingFactor = EG_ScaledMarks / EG_ESETotalMarks;
@@ -91,6 +176,28 @@ function calculateSGPA() {
     let EG_ScaledESE_Marks = EG_ESE_Marks * EG_ScalingFactor;
     let DSD_ScaledESE_Marks = DSD_ESE_Marks * DSD_ScalingFactor;
     let PCT_ScaledESE_Marks = PCT_ESE_Marks * PCT_ScalingFactor;
+
+    if(mode === "verification") {
+
+    AM2_ScaledMarks = 60;
+    AP_ScaledMarks = 60;
+    EG_ScaledMarks = 45;
+    DSD_ScaledMarks = 60;
+    PCT_ScaledMarks = 45;
+
+    AM2_ESE_Marks = parseFloat(document.getElementById("am2esemrksobt").value);
+    AP_ESE_Marks = parseFloat(document.getElementById("apesemrksobt").value);
+    EG_ESE_Marks = parseFloat(document.getElementById("egesemrksobt").value);
+    DSD_ESE_Marks = parseFloat(document.getElementById("dsdesemrksobt").value);
+    PCT_ESE_Marks = parseFloat(document.getElementById("pctesemrksobt").value);
+
+    AM2_ScaledESE_Marks = AM2_ESE_Marks;
+    AP_ScaledESE_Marks = AP_ESE_Marks;
+    EG_ScaledESE_Marks = EG_ESE_Marks;
+    DSD_ScaledESE_Marks = DSD_ESE_Marks;
+    PCT_ScaledESE_Marks = PCT_ESE_Marks;
+
+    }
 
     let AM2_FinalMarks = AM2_ISE_MSE_Marks + AM2_ScaledESE_Marks;
     let AP_FinalMarks = AP_ISE_MSE_Marks + AP_ScaledESE_Marks;

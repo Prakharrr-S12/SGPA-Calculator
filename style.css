@@ -187,6 +187,32 @@
     background: #3b82f6;
 }
 
+.coming {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.comingsoon {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+
+    color: #b12111;
+    letter-spacing: 1px;
+}
+
+.coming:hover {
+    border-color: #475569;
+    transition: 0.3s;
+}
+
 @media (max-width:768px){
 
     .Clgname{
@@ -259,6 +285,26 @@
     letter-spacing:2px;
 
     font-family:"Alumni Sans SC",sans-serif;
+}
+
+.mode-selection{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.mode-selection label{
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-right: 10px;
+}
+
+.mode-selection select{
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .Theorysubjects,

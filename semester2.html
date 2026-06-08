@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Semester 1 - GPA Calculator</title>
+    <title>Semester 2 - GPA Calculator</title>
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,32 +12,41 @@
     <div class="titlecard">
         <h1 class="semtitle">Semester 2</h1>
     </div>    
+
+    <div class="mode-selection">
+        <label for="calculationMode">Select Mode:</label>
+        <select id="calculationMode">
+            <option value="prediction">Prediction</option>
+            <option value="verification">Verification</option>
+        </select>
+    </div>
+
     <div class="Theorysubjects">
         <h2 class="theorytitle">Theory Subjects</h2>
         <div class="theorysubject1">
             <h3 class="subjecttitle">Applied Mathematics II</h3>
-            <input type="number" id="am2isemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput">
-            <input type="number" id="am2esemrksobt" placeholder="Marks Obtained in ESE" class="marksinput">
+            <input type="number" id="am2isemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="40">
+            <input type="number" id="am2esemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="60" data-prediction-max="80">
         </div>
         <div class="theorysubject2">
             <h3 class="subjecttitle">Applied Physics/Chemistry</h3>
-            <input type="number" id="apisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput">
-            <input type="number" id="apesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput">
+            <input type="number" id="apisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="40">
+            <input type="number" id="apesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="60" data-prediction-max="80">
         </div>
         <div class="theorysubject3">
             <h3 class="subjecttitle">Engineering Graphics</h3>
-            <input type="number" id="egisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput">
-            <input type="number" id="egesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput">
+            <input type="number" id="egisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="30">
+            <input type="number" id="egesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="45" data-prediction-max="60">
         </div>
         <div class="theorysubject4">
             <h3 class="subjecttitle">Digital System Design</h3>
-            <input type="number" id="dsdisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput">
-            <input type="number" id="dsdesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput">
+            <input type="number" id="dsdisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="40">
+            <input type="number" id="dsdesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="60" data-prediction-max="80">
         </div>
         <div class="theorysubject5">
             <h3 class="subjecttitle">Professional Communication and Technology</h3>
-            <input type="number" id="pctisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput">
-            <input type="number" id="pctesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput">
+            <input type="number" id="pctisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="30">
+            <input type="number" id="pctesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="45" data-prediction-max="60">
         </div>
     </div>
 
@@ -45,34 +54,34 @@
         <h2 class="labtitle">Lab Subjects</h2>
         <div class="labsubject1">
             <h3 class="subjecttitle">Applied Physics/Chemistry Lab</h3>
-            <input type="number" id="aplciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput">
+            <input type="number" id="aplciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
         </div>
         <div class="labsubject2">
             <h3 class="subjecttitle">Engineering Graphics Lab</h3>
-            <input type="number" id="eglciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput">
-            <input type="number" id="eglesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput">
+            <input type="number" id="eglciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+            <input type="number" id="eglesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput" min="0" max="25">
         </div>
         <div class="labsubject3">
             <h3 class="subjecttitle">Digital System Design Lab</h3>
-            <input type="number" id="dsdlciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput">
-            <input type="number" id="dsdlesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput">
+            <input type="number" id="dsdlciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+            <input type="number" id="dsdlesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput" min="0" max="25">
         </div>
         <div class="labsubject4">
             <h3 class="subjecttitle">Professional Communication and Technology Lab</h3>
-            <input type="number" id="pctlciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput">
+            <input type="number" id="pctlciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
         </div>
         <div class="labsubject5">
             <h3 class="subjecttitle">Object Oriented Programming Methodology Lab</h3>
-            <input type="number" id="oopmlciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput">
-            <input type="number" id="oopmlesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput">
+            <input type="number" id="oopmlciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+            <input type="number" id="oopmlesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput" min="0" max="25">
         </div>
         <div class="labsubject6">
             <h3 class="subjecttitle">Engineering Workshop II</h3>
-            <input type="number" id="ew2ciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput">
+            <input type="number" id="ew2ciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
         </div>
         <div class="labsubject7">
             <h3 class="subjecttitle">Indian Knowledge System</h3>
-            <input type="number" id="iksciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput">
+            <input type="number" id="iksciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
         </div>
     </div>
 
