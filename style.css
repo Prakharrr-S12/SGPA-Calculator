@@ -213,6 +213,122 @@
     transition: 0.3s;
 }
 
+.how-to-use {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 14px;
+
+    color: #e2e8f0;
+}
+
+.how-to-use-title {
+    font-family: "Alumni Sans SC", sans-serif;
+    text-align: center;
+    font-size: 28px;
+    color: #ab4711;
+}
+
+.formula-title {
+    font-family: "Alumni Sans SC", sans-serif;
+    text-align: center;
+    font-size: 32px;
+    color: white;
+}
+
+.marks-guide-title{
+    font-family: "Alumni Sans SC", sans-serif;
+    text-align: center;
+    font-size: 32px;
+    color: #ae0d0d;
+}
+
+.steps p {
+    font-family: "Instrument Serif", serif;
+    font-size:larger;
+    background: #893fad;
+    border-left: 4px solid #1e9455; 
+
+    padding: 12px 14px;
+    margin: 10px 0;
+
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.steps p:hover {
+    background: rgba(16, 181, 35, 0.08);
+    transform: translateX(4px);
+}
+
+.step1, .step2, .step3, .step4, .step5 {
+    font-family: "Smooch Sans", sans-serif;
+    font-size: 16px;
+}
+
+.formula-box {
+    margin-top: 25px;
+    padding: 20px;
+
+    background: rgb(49, 94, 190);
+    border-left: 5px solid #1aab56;
+    border-radius: 10px;
+}
+
+.formula-box p {
+    font-family: "Instrument Serif", serif;
+}
+
+.SGPA-formula-text {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.credit-point-text,
+.example-text {
+    font-size: 20px;
+    color: #cbd5e1;
+}
+
+.marks-guide {
+    margin-top: 30px;
+}
+
+.marks-guide table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.marks-guide th {
+    background: linear-gradient(135deg, #4c1d95, #7c3aed);
+    color: white;
+
+    font-family: "Alumni Sans SC", sans-serif;
+    font-size: 16px;
+
+    padding: 12px;
+    border: 1px solid #334155;
+}
+
+.marks-guide td {
+    padding: 12px;
+    text-align: center;
+
+    background: rgba(255,255,255,0.02);
+    border: 1px solid #334155;
+}
+
+.marks-guide tr:hover td {
+    background: rgba(56, 189, 248, 0.08);
+}
+
+
 @media (max-width:768px){
 
     .Clgname{
