@@ -48,7 +48,7 @@ function validateInput(id, min, max) {
     let value = Number(el.value);
 
     if (value < min || value > max) {
-        alert(`${id}: Enter value between ${min} and ${max}`);
+        alert(`Enter value between ${min} and ${max}`);
         el.focus();
         return false;
     }
