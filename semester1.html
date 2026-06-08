@@ -12,10 +12,142 @@
     <div class="titlecard">
         <h1 class="semtitle">Semester 1</h1>
     </div>    
-    <div class="coming">
+    <!-- <div class="coming">
         <h2 class="comingsoon">Coming Soon...</h2>
+    </div> -->
+
+    <div class="mode-selection">
+        <label for="calculationMode">Select Mode:</label>
+        <select id="calculationMode">
+            <option value="prediction">Prediction</option>
+            <option value="verification">Verification</option>
+        </select>
     </div>
 
-    <script src="script.js"></script>
+    <div class="Theorysubjects">
+        <h2 class="theorytitle">Theory Subjects</h2>
+        <div class="theorysubject1">
+            <h3 class="subjecttitle">Applied Mathematics I</h3>
+            <input type="number" id="am1isemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="40">
+            <input type="number" id="am1esemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="60" data-prediction-max="80">
+        </div>
+        <div class="theorysubject2">
+            <h3 class="subjecttitle">Applied Physics/Chemistry</h3>
+            <input type="number" id="apisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="40">
+            <input type="number" id="apesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="60" data-prediction-max="80">
+        </div>
+        <div class="theorysubject3">
+            <h3 class="subjecttitle">Basic Electrical & Electronics Engineering </h3>
+            <input type="number" id="beeeisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="30">
+            <input type="number" id="beeeesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="45" data-prediction-max="60">
+        </div>
+        <div class="theorysubject4">
+            <h3 class="subjecttitle">C-Programming</h3>
+            <input type="number" id="cpisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="30">
+            <input type="number" id="cpesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="45" data-prediction-max="60">
+        </div>
+        <div class="theorysubject5">
+            <h3 class="subjecttitle">Applied Mechanics and Robot Dynamics </h3>
+            <input type="number" id="amrdisemsemrksobt" placeholder="Marks in ISE and MSE" class="marksinput" min="0" max="30">
+            <input type="number" id="amrdesemrksobt" placeholder="Marks Obtained in ESE" class="marksinput ese-input" min="0" data-verification-max="45" data-prediction-max="60">
+        </div>
+    </div>
+
+    <div class="labsubjects">
+        <h2 class="labtitle">Lab Subjects</h2>
+        <div class="labsubject1">
+            <h3 class="subjecttitle">Applied Physics/Chemistry Lab</h3>
+            <input type="number" id="aplciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+        </div>
+        <div class="labsubject2">
+            <h3 class="subjecttitle">Basic Electrical & Electronics Engineering Lab </h3>
+            <input type="number" id="beeelciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+            <input type="number" id="beeelesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput" min="0" max="25">
+        </div>
+        <div class="labsubject3">
+            <h3 class="subjecttitle">C-Programming Lab</h3>
+            <input type="number" id="cplciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+            <input type="number" id="cplesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput" min="0" max="25">
+        </div>
+        <div class="labsubject4">
+            <h3 class="subjecttitle">Applied Mechanics and Robot Dynamics Lab </h3>
+            <input type="number" id="amrdlciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+            <input type="number" id="amrdlesepmrksobt" placeholder="Marks Obtained in ESEP" class="marksinput" min="0" max="25">
+        </div>
+        <div class="labsubject5">
+            <h3 class="subjecttitle">Engineering Workshop I</h3>
+            <input type="number" id="ew1ciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+        </div>
+        <div class="labsubject6">
+            <h3 class="subjecttitle">Health, Wellness and Mindfulness</h3>
+            <input type="number" id="hwmciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+        </div>
+        <div class="labsubject7">
+            <h3 class="subjecttitle">Induction Cum Universal Human Values</h3>
+            <input type="number" id="uhvciapmrksobt" placeholder="Marks Obtained in CIAP" class="marksinput" min="0" max="25">
+        </div>
+    </div>
+
+    <div class="calculatebutton">
+        <button onclick="calculateSGPA()">Calculate</button>
+    </div>
+
+    <div id="resultSection" class="result-section">
+
+    <div class="result-header">
+        <h1>Semester I Result</h1>
+        <h3>SIES Graduate School of Technology</h3>
+    </div>
+
+    <table class="result-table">
+
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Credits</th>
+                <th>Grade</th>
+                <th>Grade Point</th>
+                <th>Credit Points</th>
+            </tr>
+        </thead>
+
+        <tbody id="resultTableBody">
+
+            <!-- JavaScript will insert rows here -->
+
+        </tbody>
+
+    </table>
+
+    <div class="result-summary">
+
+        <div class="summary-card">
+            <h3>Total Credits</h3>
+            <p id="totalCreditsDisplay">0</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>Total Credit Points</h3>
+            <p id="creditPointsDisplay">0</p>
+        </div>
+
+        <div class="summary-card sgpa-card">
+            <h3>SGPA</h3>
+            <p id="finalSGPA">0.00</p>
+        </div>
+
+    </div>
+
+    <div class="button-container">
+
+        <button onclick="location.reload()" class="result-btn">
+            Calculate Again
+        </button>
+
+    </div>
+
+</div>
+
+    <script src="scriptsem1.js"></script>
 </body>
 </html>    
