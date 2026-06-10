@@ -43,18 +43,25 @@ function updateMode() {
 updateMode();
 
 function validateInput(id, min, max) {
-
     let el = document.getElementById(id);
     let value = Number(el.value);
 
     if (value < min || value > max) {
+        el.classList.add("error");
         alert(`Enter value between ${min} and ${max}`);
         el.focus();
         return false;
     }
 
+    el.classList.remove("error");
     return true;
 }
+
+document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", function () {
+        this.classList.remove("error");
+    });
+});
 
 function validateAll(mode) {
 
