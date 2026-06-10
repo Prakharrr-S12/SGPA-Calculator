@@ -71,6 +71,28 @@ html{
     transform:translateY(-1px);
 }
 
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#0f172a;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.nav-btn{
+    padding:10px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* Mobile */
 @media (max-width:768px){
 
     .navbar{
@@ -94,7 +116,6 @@ html{
         min-width:120px;
     }
 }
-
 
 .Maintitle{
     background:
