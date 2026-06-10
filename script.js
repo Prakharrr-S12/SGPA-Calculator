@@ -67,13 +67,15 @@ function showHome() {
 function showInstructions() {
     showHome();
 
-    document.getElementById("instructionsSection")
-        .scrollIntoView({behavior: "smooth"});
+    document.getElementById("instruction").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 function showReviews() {
     showHome();
 
-    document.getElementById("reviewsSection")
-        .scrollIntoView({behavior: "smooth"});
+    document.getElementById("review").scrollIntoView({
+        behavior: "smooth"
+    });
 }
