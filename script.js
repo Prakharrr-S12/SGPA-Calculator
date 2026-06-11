@@ -80,13 +80,24 @@ function showReviews() {
     });
 }
 
-function printResult() {
-    const printContent = document.getElementById("resultSection").innerHTML;
-    const originalContent = document.body.innerHTML;
+// function printResult() {
+//     const printContent = document.getElementById("resultSection").innerHTML;
+//     const originalContent = document.body.innerHTML;
 
-    document.body.innerHTML = printContent;
-    window.print();
-    document.body.innerHTML = originalContent;
+//     document.body.innerHTML = printContent;
+//     window.print();
+//     document.body.innerHTML = originalContent;
 
-    location.reload();
+//     location.reload();
+// }
+
+function downloadResult() {
+    const result = document.getElementById("resultSection");
+
+    html2canvas(result).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "SGPA-Result.png";
+        link.href = canvas.toDataURL();
+        link.click();
+    });
 }
