@@ -92,9 +92,10 @@ function showReviews() {
 // }
 
 function downloadResult() {
-    const result = document.getElementById("resultSection");
-
-    html2canvas(result).then(canvas => {
+    html2canvas(document.getElementById("resultSection"), {
+        ignoreElements: (element) =>
+            element.classList.contains("button-container")
+    }).then(canvas => {
         const link = document.createElement("a");
         link.download = "SGPA-Result.png";
         link.href = canvas.toDataURL();
