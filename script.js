@@ -102,3 +102,9 @@ function downloadResult() {
         link.click();
     });
 }
+
+function toggleMenu(){
+document
+.getElementById("navMenu")
+.classList.toggle("active");
+}
