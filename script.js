@@ -14,15 +14,6 @@
     dotsEl.appendChild(d);
   });
 
-function toggleMenu(){
-
-    document
-    .getElementById("navMenu")
-    .classList
-    .toggle("active");
-
-}
-
   function goTo(n) {
     slides[cur].classList.remove('active');
     dotsEl.children[cur].classList.remove('on');
