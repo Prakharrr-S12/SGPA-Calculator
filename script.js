@@ -108,3 +108,50 @@ document
 .getElementById("navMenu")
 .classList.toggle("active");
 }
+
+let slides =
+document.querySelectorAll(".quote-slide");
+
+let current = 0;
+
+function showReview(index){
+
+slides.forEach((slide)=>{
+slide.classList.remove("active");
+});
+
+slides[index]
+.classList
+.add("active");
+
+}
+
+
+function nextReview(){
+
+current++;
+
+if(current>=slides.length){
+
+current=0;
+
+}
+
+showReview(current);
+
+}
+
+
+function prevReview(){
+
+current--;
+
+if(current<0){
+
+current=slides.length-1;
+
+}
+
+showReview(current);
+
+}
