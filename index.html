@@ -23,10 +23,25 @@
 </button>
     <nav id="navMenu">
         <div class="nav-buttons">
-            <button class="nav-btn" onclick="showHome()">Home</button>
-            <button class="nav-btn" onclick="showInstructions()">Instruction</button>
-            <button class="nav-btn" onclick="showFeedback()">Feedback</button>
-            <button class="nav-btn" onclick="showReviews()">Reviews</button>
+          <button class="nav-btn"
+onclick="showHome(); closeMenu()">
+Home
+</button>
+
+<button class="nav-btn"
+onclick="showInstructions(); closeMenu()">
+Instruction
+</button>
+
+<button class="nav-btn"
+onclick="showFeedback(); closeMenu()">
+Feedback
+</button>
+
+<button class="nav-btn"
+onclick="showReviews(); closeMenu()">
+Reviews
+</button>
         </div>
     </nav>
 </header>

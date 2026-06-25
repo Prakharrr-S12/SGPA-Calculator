@@ -103,55 +103,55 @@ function downloadResult() {
     });
 }
 
-function toggleMenu(){
-document
-.getElementById("navMenu")
-.classList.toggle("active");
+function toggleMenu() {
+    document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
 }
 
-let slides =
+function closeMenu() {
+    document
+        .getElementById("navMenu")
+        .classList
+        .remove("active");
+}
+
+const slides =
 document.querySelectorAll(".quote-slide");
 
 let current = 0;
 
 function showReview(index){
 
-slides.forEach((slide)=>{
+slides.forEach(slide=>{
+slide.style.display="none";
 slide.classList.remove("active");
 });
 
-slides[index]
-.classList
-.add("active");
+slides[index].style.display="block";
+slides[index].classList.add("active");
 
 }
-
 
 function nextReview(){
 
-current++;
-
-if(current>=slides.length){
-
-current=0;
-
-}
+current =
+(current + 1)
+% slides.length;
 
 showReview(current);
 
 }
-
 
 function prevReview(){
 
-current--;
-
-if(current<0){
-
-current=slides.length-1;
-
-}
+current =
+(current - 1 + slides.length)
+% slides.length;
 
 showReview(current);
 
 }
+
+showReview(current);
